@@ -4,7 +4,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-$con=mysqli_connect("localhost","root","","myhmsdb3");
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
+$active_group = 'default';
+$query_builder = TRUE;
+
+$con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+// $con=mysqli_connect("localhost","root","","myhmsdb3");
 if(isset($_POST['patsub'])){
 	$email=$_POST['email'];
 	$password=$_POST['password2'];

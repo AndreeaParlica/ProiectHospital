@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <?php 
 include('func1.php');
-$con=mysqli_connect("localhost","root","","myhmsdb3");
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
+$active_group = 'default';
+$query_builder = TRUE;
+
+$con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+// $con=mysqli_connect("localhost","root","","myhmsdb3");
 $doctor = $_SESSION['dname'];
 if(isset($_GET['cancel']))
   {
@@ -179,7 +188,16 @@ if(isset($_GET['cancel']))
                 </thead>
                 <tbody>
                   <?php 
-                    $con=mysqli_connect("localhost","root","","myhmsdb3");
+                    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                    $cleardb_server = $cleardb_url["host"];
+                    $cleardb_username = $cleardb_url["user"];
+                    $cleardb_password = $cleardb_url["pass"];
+                    $cleardb_db = substr($cleardb_url["path"],1);
+                    $active_group = 'default';
+                    $query_builder = TRUE;
+                    
+                    $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                    // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
                     $dname = $_SESSION['dname'];
                     $query = "select pid,ID,fname,lname,gender,email,contact,appdate,apptime,userStatus,doctorStatus from appointmenttb where doctor='$dname';";
@@ -270,8 +288,16 @@ if(isset($_GET['cancel']))
                 </thead>
                 <tbody>
                   <?php 
-
-                    $con=mysqli_connect("localhost","root","","myhmsdb3");
+                    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                    $cleardb_server = $cleardb_url["host"];
+                    $cleardb_username = $cleardb_url["user"];
+                    $cleardb_password = $cleardb_url["pass"];
+                    $cleardb_db = substr($cleardb_url["path"],1);
+                    $active_group = 'default';
+                    $query_builder = TRUE;
+                    
+                    $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                    // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
 
                     $query = "select pid,fname,lname,ID,appdate,apptime,disease,allergy,prescription from prestb where doctor='$doctor';";
@@ -323,8 +349,16 @@ if(isset($_GET['cancel']))
                 </thead>
                 <tbody>
                   <?php 
-
-                    $con=mysqli_connect("localhost","root","","myhmsdb3");
+                    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                    $cleardb_server = $cleardb_url["host"];
+                    $cleardb_username = $cleardb_url["user"];
+                    $cleardb_password = $cleardb_url["pass"];
+                    $cleardb_db = substr($cleardb_url["path"],1);
+                    $active_group = 'default';
+                    $query_builder = TRUE;
+                    
+                    $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                    // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
 
                     $query = "select * from appointmenttb;";
