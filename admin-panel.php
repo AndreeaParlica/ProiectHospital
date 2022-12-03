@@ -356,7 +356,7 @@ function get_specs(){
                           echo json_encode($docarray);
 
                   ?> -->
-        
+      
 
                     <div class="col-md-4">
                           <label for="spec">Specializare:</label>
