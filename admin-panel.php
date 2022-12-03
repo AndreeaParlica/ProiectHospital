@@ -126,7 +126,7 @@ function generate_bill(){
 
 
 if(isset($_GET["generate_bill"])){
-  require_once("/tcpdf/tcpdf.php");
+  require_once("./tcpdf2/tcpdf.php");
   $obj_pdf = new TCPDF('P',PDF_UNIT,PDF_PAGE_FORMAT,true,'UTF-8',false);
   $obj_pdf -> SetCreator(PDF_CREATOR);
   $obj_pdf -> SetTitle("Generate Bill");
