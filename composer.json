@@ -1,1 +1,15 @@
-
+{
+    "name": "andreeap/app",
+    "autoload": {
+        "psr-4": {
+            "Andreeap\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AndreeaParlica",
+            "email": "andreea.vasile88@gmail.com"
+        }
+    ],
+    "require": {}
+}
