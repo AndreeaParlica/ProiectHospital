@@ -12,7 +12,7 @@ $cleardb_db = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 
-$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+$con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 
@@ -92,7 +92,15 @@ if(isset($_GET['cancel']))
 
 
 function generate_bill(){
-  $con=mysqli_connect("localhost","root","","myhmsdb3");
+  $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $cleardb_server = $cleardb_url["host"];
+  $cleardb_username = $cleardb_url["user"];
+  $cleardb_password = $cleardb_url["pass"];
+  $cleardb_db = substr($cleardb_url["path"],1);
+  
+  $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+  
+  // $con=mysqli_connect("localhost","root","","myhmsdb3");
   $pid = $_SESSION['pid'];
   $output='';
   $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
@@ -152,7 +160,16 @@ if(isset($_GET["generate_bill"])){
 }
 
 function get_specs(){
-  $con=mysqli_connect("localhost","root","","myhmsdb3");
+  $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $cleardb_server = $cleardb_url["host"];
+  $cleardb_username = $cleardb_url["user"];
+  $cleardb_password = $cleardb_url["pass"];
+  $cleardb_db = substr($cleardb_url["path"],1);
+ 
+
+  $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+  // $con=mysqli_connect("localhost","root","","myhmsdb3");
   $query=mysqli_query($con,"select username,spec from doctb");
   $docarray = array();
     while($row =mysqli_fetch_assoc($query))
@@ -320,8 +337,16 @@ function get_specs(){
                 <div class="row">
                   
                   <!-- <?php
-
-                        $con=mysqli_connect("localhost","root","","myhmsdb3");
+                          $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                          $cleardb_server = $cleardb_url["host"];
+                          $cleardb_username = $cleardb_url["user"];
+                          $cleardb_password = $cleardb_url["pass"];
+                          $cleardb_db = substr($cleardb_url["path"],1);
+                         
+                        
+                          $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                        
+                        // $con=mysqli_connect("localhost","root","","myhmsdb3");
                         $query=mysqli_query($con,"select username,spec from doctb");
                         $docarray = array();
                           while($row =mysqli_fetch_assoc($query))
@@ -476,9 +501,18 @@ function get_specs(){
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
+                  <?php
+                      $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                      $cleardb_server = $cleardb_url["host"];
+                      $cleardb_username = $cleardb_url["user"];
+                      $cleardb_password = $cleardb_url["pass"];
+                      $cleardb_db = substr($cleardb_url["path"],1);
+                     
+                    
+                      $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                     
 
-                    $con=mysqli_connect("localhost","root","","myhmsdb3");
+                    // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
 
                     $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
@@ -553,8 +587,17 @@ function get_specs(){
                 </thead>
                 <tbody>
                   <?php 
+                    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                    $cleardb_server = $cleardb_url["host"];
+                    $cleardb_username = $cleardb_url["user"];
+                    $cleardb_password = $cleardb_url["pass"];
+                    $cleardb_db = substr($cleardb_url["path"],1);
+                   
+                  
+                    $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                  
 
-                    $con=mysqli_connect("localhost","root","","myhmsdb3");
+                    // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
 
                     $query = "select doctor,ID,appdate,apptime,disease,allergy,prescription from prestb where pid='$pid';";
