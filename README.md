@@ -1,131 +1,113 @@
 # Hospital Management System
-Hospital Management System using MySQL, Php and Bootstrap
+Sistem de management al unui spital. Sistemul utilizeaza MySQL, Php si Bootstrap
 
-## Need to work on:
+## Preconditii
+1. Intalarea XAMPP web server
+2. Un editor de cod (eu am folosit VS Code)
+3. Orice web browser 
 
-1. Ability to accept the appointment by the doctor to acknowledge the patient that their appointment has been approved.
-2. User should not be allowed to register if he/she tries to provide the already registered email ID.
-3. The password should be encrypted and the password field shouldn't be displayed in the admin panel.
-4. Implementation of pagination for all the list view across the application.
-5. Bug fix - Bill payment receipt contains multiple record if the patient has associated with the same doctor multiple times.
-6. Addition of more fields in the prescription statement to make it more specific one.
-7. Addition of more details on payment - such as date of the payment made, amount paid, etc.
-8. Implementation of export button in admin module to export all details to an excel sheet.
-
-## Prerequisites
-1. Install XAMPP web server
-2. Any Editor (Preferably VS Code or Sublime Text)
-3. Any web browser with latest version
-
-## Languages and Technologies used
+## Limbaje si technologii folosite
 1. HTML5/CSS3
-2. JavaScript (to create dynamically updating content)
+2. JavaScript
 3. Bootstrap (An HTML, CSS, and JS library)
-4. XAMPP (A web server by Apache Friends)
+4. XAMPP (web server de Apache Friends)
 5. Php
-6. MySQL (An RDBMS that uses SQL)
-7. TCPDF (to generate PDFs)
+6. MySQL (RDBMS ce utilizeaza SQL)
+7. TCPDF (pentru generarea PDF)
 
-## Steps to run the project in your machine
-1. Download and install XAMPP in your machine
-2. Clone or download the repository
-3. Extract all the files and move it to the 'htdocs' folder of your XAMPP directory.
-4. Start the Apache and Mysql in your XAMPP control panel.
-5. Open your web browser and type 'localhost/phpmyadmin'
-6. In phpmyadmin page, create a new database from the left panel and name it as 'myhmsdb'
-7. Import the file 'myhmsdb3.sql' inside your newly created database and click ok.
-8. Open a new tab and type 'localhost/foldername' in the url of your browser
-9. Hurray! That's it!
+## Pasi pentru a rula proiectul pe masina locala
+1. Downloadeaza si instaleaza XAMPP pe masina ta
+2. Cloneaza folderul
+3. Extrage toate fisierele si muta-le in folderul 'htdocs' fin folderul XAMPP.
+4. Porneste Apache and Mysql din interfata de control XAMPP.
+5. Deschide un browser si scrie 'localhost/phpmyadmin'
+6. In pagina phpmyadmin, creaza o noua baza de date
+7. Importa fisierul 'myhmsdb.sql' in baza de date pe care abia ce ai creat-o si click ok
+8. Deschide un nou tab in browser si scrie'localhost/numeproiect'
+9. Ai reusit!
     
-### SOFTWARES USED
-  - XAMPP was installed on the Ubuntu 19.04 machine and APACHE2 Server and MySQL were initialized. And, files were built inside opt/lampp/htdocs/myhmsp
-  - VS Code as a text editor.
-  - Google Chrome -> localhost/myhmsp was used as the url.
+### SOFTWARES UTILIZATE
+  - XAMPP a fost instalat pe MAC OS 3.0.1 (22A400)
+  - VS Code ca editor de text.
+  - Google Chrome -> localhost/myhmsp a fost folosit pentru a vizualiza proiectul local.
   
 
-### Starting Apache And MySQL in XAMPP:
-  The XAMPP Control Panel allows you to manually start and stop Apache and MySQL. To start Apache or MySQL manually, click the ‘Start’ button under ‘Actions’.
+### Pornire Apache si MySQL in XAMPP:
+  Interfata de control XAMPP permite sa pornim si sa oprim manual serverul Apache si baza de date MySQL. In sectiunea "Manage servers".
+
+  
   
 ## GETTING INTO THE PROJECT:
-Hospital Management System in php and mysql. This system has a ‘Home’ page from where the patient, doctor & administrator can login into their accounts by toggling the tabs accordingly.
+Proiectul are o pagina HOME de unde pacientul, doctorul si receptionistul/admin-ul se pot loga pe conturile lor
 
-'About Us' page is not finished
+Pagina DESPRE NOI nu a fost finalizata
 
-‘Contact’ page allows users to provide feedback or queries about the services of the hospital.
+Pagina CONTACT permite altor useri sa trasnmita feedback sau cerinte in sistemul de gestiune a spitalului
+‘Home’ are 3 module:
+1. Modulul Pacient
+2. Modulul Doctor
+3. Modulul Admin
 
-The ‘Home’ page consists of 3 modules:
-1. Patient Module
-2. Doctor Module
-3. Admin Module
+### Modulul Pacient:
 
-### Patient Module:
+  &nbsp; &nbsp; &nbsp; Acest modul permite pacientilor sa isi creeze cont, sa se programeze pentru o consultatie si sa isi vizualizeze istoricul consultatiilor:
 
-  &nbsp; &nbsp; &nbsp; This module allows patients to create their account, book an appointment to see a doctor and see their appointment history.
-  The registration page(in the home page itself) asks patients to enter their First Name, Last Name, Email ID, Contact Number, Password and radio buttons to select their gender.
+**1. Programare consulatie:**
 
-The Dashboard page allows patients to perform two operations:
+  &nbsp; &nbsp; &nbsp; Programarea necesita selectarea unui doctor, unei specialitati, unei date din calendar si unei ore.
 
-**1. Book his/her appointment:**
+**2. Vizualizare istoric consultatii:**
 
-  &nbsp; &nbsp; &nbsp; Here, the patients can able to book their appointments to see a doctor. The appointment form requires patients to select the doctor that they want to see, Date and Time that they want to meet with the doctor. The consultancy fee will be shown accordingly to the patient as it was already determined by the doctor.
+  &nbsp; &nbsp; &nbsp; Poate vizualiza istoricul ce contine: Nume doctor, taxa consultatie, data si ora programare.
 
-**2. View patients’ Appointment History:**
+### Modulul Doctor:
 
-  &nbsp; &nbsp; &nbsp; Here, the patient can see their appointment history which contains Doctor Name, Consultancy Fee, Appointment Date and Time.
-
-Once the patient has logged out of his account, if he wants to go into his account again, he can login his account, instead of register his account again. 
-
-This is how the patient module works. On the whole, this module allows patients to register their account or login their account(if he/she has one), book an appointment and view his/her appointment history.
-
-### Doctor Module:
-
-  &nbsp; &nbsp; &nbsp; The doctors can login into their account which can be done by toggling the tab from ‘Patient’ to ‘Doctor’. Registration of a doctor account can be done only by admin. We will discuss more about this in Admin Module.
+  &nbsp; &nbsp; &nbsp; Doctorii se pot loga in conturile lor. Crearea unui cont de doctor se face numai de catre admin.
 
 
-&nbsp; &nbsp; &nbsp; Once everything is done, the doctor can logout of their account. Thus, in general, a doctor can login into his/her account, view their appointments and search for a patient. This is all about Doctor Module.
+&nbsp; &nbsp; &nbsp; O data ce are creat un cont, doctorul se poate loga cu contul sau, poate vedea programarile si poate cauta dupa un pacient in istoricul programarilor sale.
 
-### Admin Module:
+### Modulul Admin:
    
-   &nbsp; &nbsp; &nbsp; This module is the heart of our project where an admin can see the list of all patients. Doctors and appointments and the feedback/queries received from the ‘Contact’ page. Also admin can add doctor too. 
-  &nbsp; &nbsp; &nbsp; Login into admin account can be done by toggling into admin tab of the Home page.
+   &nbsp; &nbsp; &nbsp; Adminul poate vizualiza lista tuturor pacientilor, a tuturor doctorilor si programarilor, feedback primit de pe pagina de Contact. De asemenea, adminul poate adauga un doctor sau sterge un doctor.
+  &nbsp; &nbsp; &nbsp; Credentiale cont admin:
   &nbsp; &nbsp; &nbsp; `username`: admin, `password`: admin123
 
-This module allows admin to perform five major operations:
+Moculul Admin permite efectuarea umatoarelor operatiuni:
 
-**1. View the list of all patients registered:**
+**1. Vizualizare lista pacienti:**
 
-  &nbsp; &nbsp; &nbsp; Admin can able to view all the patients registered. This includes the patients’ First Name, Last Name, Email ID, Contact Number and Password.As like in doctor module, admin can also search for a patient by their contact number in the search box.
+  &nbsp; &nbsp; &nbsp; Adminul poate vizualiza lista tuturor pacientilor inregistrati. Informatiile sunt grupate dupa Nume, prenume, Email ID, Numar contact si parola. Admin poate cauta dupa pacient utilizand numarul de contact al acestuia.
   
-**2. View the list of all doctors registered:**
+**2. Vizualizare lista doctori inregistrati:**
 
-  &nbsp; &nbsp; &nbsp; Details of the doctors can also be viewed by the admin. This details include the Name of the doctor, Password, Email and Consultancy fees. Searching for a doctor can be done by using the doctor’s Email ID in the search box.
+  &nbsp; &nbsp; &nbsp; Adminul poate vizualiza lista tuturor doctorilor inregistrati. Informatiile sunt grupate dupa Nume, Parola, Email, Taxa consultatie. Admin poate cauta un doctor utilizand adresa de email al acestuia.
 
-**3. View the Appointment lists:**
+**3. Vizualizare lista programari:**
 
-  &nbsp; &nbsp; &nbsp; Admin can also able to see the entire details of the appointment that shows the appointment details of the patients with their respective doctors. This includes the First Name, Last Name, Email and Contact Number of patients, doctor’s name, Appointment Date, Time and the Consultancy Fees. 
+  &nbsp; &nbsp; &nbsp; Adminul poate vizualiza lista cu toate programarile. Informatiile sunt grupate dupa Nume, Prenume, Email, Numar contact, nume doctor, data programare, ora programare, taxa consultatie. 
   
-**4. Add Doctor:**
+**4. Adaugarea unui doctor:**
 
-  &nbsp; &nbsp; &nbsp; Admin alone can add a new doctor since anyone can register as a doctor if we put this section on the home page. This form asks Doctor’s Name, Email ID, Password and his/her Consultancy Fees.
+  &nbsp; &nbsp; &nbsp; Adminul poate adauga un doctor, deoarece doar el are acest privilegiu. Inregistrarea unui doctor are nevoie de urmatoarele date: Nume, Emai ID, Parola si taxa de consultatie.
 
-**5. View User’s feedback/Queries:**
+**5. Vizualizare feedback useri:**
 
-  &nbsp; &nbsp; &nbsp; Admin is allowed to view the feedback/Query that has been given by the user in the ‘Contact’ page. This includes User’s Name, Email Id, Contact Number and the message(Feedback/ Query)
-
-  &nbsp; &nbsp; &nbsp; Taking everything into consideration, admin can able to view the details of patients and doctors, appointment details, Feedback by the user and can add a new doctor. Once everything is done, the admin can logout from his account.
+  &nbsp; &nbsp; &nbsp; Adminul poate vizualiza feedback-ul primit in urma serviciilor prestate de catre spital. Informatiile sunt grupate dupa Nume user, Email ID, Numar contact si mesaj.
 
 
-### 1. Cancel Appointments
+### 1. Anularea unei programari
 	
-   &nbsp; &nbsp; &nbsp; Patients and doctors can able to delete their appointments.
+   &nbsp; &nbsp; &nbsp; Pacientii si doctorii pot anula o programare
  
-  If the patient deletes the last record (for doctor Valentin), then a label "deleted by you" will be displayed in the column 'Current Status' and the action will change to cancel state.
+  Daca un pacient sterge o programare (pentru doctorul Valentin de ex), atunci informatia "anulata de catre tine" va fi afisata in coluana "Status curent". 
   
-  Similarly doctors can also delete their appointments and patients can view their updated appointment details.
   
-### 2. Remove Doctors by Admin
+  Similar, docotrii pot anula o programare si pacienti vor vedea statusul programarii actualizat in "Anulata de catre doctor".
+  
+### 2. Stergerea unui doctor de catre Admin
 
-&nbsp; &nbsp; &nbsp; Admin can also delete the doctors from the system. This let admin to have more control over the system.
+&nbsp; &nbsp; &nbsp; Admin poate sterge un doctor din sistem.
 
 
 
