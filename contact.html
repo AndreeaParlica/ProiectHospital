@@ -66,6 +66,16 @@
             <div class="contact-image">
                 <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
             </div>
+            <div>
+            <!-- Captcha error message -->
+            <?php if(!empty($captchaError)) {?>
+              <div class="form-group col-12 text-center">
+                <div class="alert text-center <?php echo $captchaError['status']; ?>">
+                  <?php echo $captchaError['message']; ?>
+                </div>
+              </div>
+            <?php }?></div>
+
             <form method="post" action="contact.php">
                 <h3>Lasa-ne un mesaj</h3>
                <div class="row">
@@ -85,8 +95,18 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group" >
-                            <textarea name="txtMsg" class="form-control" placeholder="Mesajul tau *" style="width: 100%; height: 150px;" required></textarea>
+                            <textarea name="txtMsg" class="form-control" placeholder="Mesajul tau *" style="width: 100%; height: 56px;" required></textarea>
                         </div>
+                        <div class="row">
+                          <div class="form-group col-6">
+                            <label>Insereaza</label>
+                            <input type="text" class="form-control" name="captcha" id="captcha">
+                          </div>
+                          <div class="form-group col-6">
+                            <label>Cod Captcha</label>
+                            <img src="./captcha.php" alt="PHP Captcha">
+                          </div>
+                      </div>
                     </div>
                 </div>
             </form>

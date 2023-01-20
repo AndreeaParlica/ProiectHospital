@@ -89,7 +89,7 @@ Files and their suffixes
 ------------------------
 
 The files with .sfd (Spline Font Database) are in FontForge's native format. 
-Please use these if you plan to modify the font files.
+ use these if you plan to modify the font files.
 
 TrueType fonts for immediate consumption are the files with the .ttf
 (TrueType Font) suffix.  These are ready to use in Xwindows based
