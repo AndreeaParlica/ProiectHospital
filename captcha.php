@@ -1,15 +1,15 @@
 <?php
     session_start();
     
-    if(!empty($_POST["send"])) {
-      $name = $_POST["name"];
-      $email = $_POST["email"];
+    if(!empty($_POST["btnSubmit"])) {
+      $name = $_POST["txtName"];
+      $email = $_POST["txtEmail"];
       $captcha = $_POST["captcha"];
       $captchaUser = filter_var($_POST["captcha"]);
       if(empty($captcha)) {
         $captchaError = array(
           "status" => "alert-danger",
-          "message" => "inserati un cod captcha."
+          "message" => "Inserati un cod captcha."
         );
       }
       else if($_SESSION['CAPTCHA_CODE'] == $captchaUser){

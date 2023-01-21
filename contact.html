@@ -56,19 +56,14 @@
   </nav>
 
 
-
-
-
-
-
-
     <div class="container contact-form" style="font-family: 'IBM Plex Sans', sans-serif;">
             <div class="contact-image">
                 <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
             </div>
             <div>
-            <!-- Captcha error message -->
-            <?php if(!empty($captchaError)) {?>
+            <!-- Captcha eroare -->
+            <?php 
+              if(!empty($captchaError)) {?>
               <div class="form-group col-12 text-center">
                 <div class="alert text-center <?php echo $captchaError['status']; ?>">
                   <?php echo $captchaError['message']; ?>
@@ -99,19 +94,18 @@
                         </div>
                         <div class="row">
                           <div class="form-group col-6">
-                            <label>Insereaza</label>
+                            <label>Insereaza cod</label>
                             <input type="text" class="form-control" name="captcha" id="captcha">
                           </div>
                           <div class="form-group col-6">
                             <label>Cod Captcha</label>
-                            <img src="./captcha.php" alt="PHP Captcha">
+                            <img src="./captchaImageSource.php" alt="PHP Captcha">
                           </div>
                       </div>
                     </div>
                 </div>
             </form>
 </div>
-
 </body>
 </html>
 
