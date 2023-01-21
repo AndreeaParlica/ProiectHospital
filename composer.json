@@ -11,5 +11,7 @@
             "email": "andreea.vasile88@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-gd": "*"
+    }
 }
