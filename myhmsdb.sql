@@ -203,8 +203,7 @@ INSERT INTO `prestb` (`doctor`, `pid`, `ID`, `fname`, `lname`, `appdate`, `appti
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `appointmenttb`
+
 --
 ALTER TABLE `appointmenttb`
   ADD PRIMARY KEY (`ID`);
@@ -232,6 +231,8 @@ ALTER TABLE `patreg`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
+
+-- add captcha column for contact table
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
