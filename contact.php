@@ -30,10 +30,7 @@ if(isset($_POST['btnSubmit']))
 		echo 'window.location.href = "contact.html";';
 		echo '</script>';
     }
-}
-
-//verifica captcha code
-	if(!empty($_POST["btnSubmit"])) {
+} else {
 	$name = $_POST["txtName"];
 	$email = $_POST["txtEmail"];
 	$captcha = $_POST["captcha"];
@@ -44,13 +41,13 @@ if(isset($_POST['btnSubmit']))
 		"message" => "Inserati un cod captcha."
 	  );
 	}
-	else if($_SESSION['CAPTCHA_CODE'] == $captchaUser){
-	  $captchaError = array(
+if($_SESSION['CAPTCHA_CODE'] == $captchaUser){
+	$captchaError = array(
 		"status" => "alert-success",
 		"message" => "Formular trimis cu succes."
 	  );
-	} else {
-	  $captchaError = array(
+} else {
+	$captchaError = array(
 		"status" => "alert-danger",
 		"message" => "Captcha invalid."
 	  );
