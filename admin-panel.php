@@ -17,13 +17,13 @@ $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cl
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 
 
-  $pid = $_SESSION['pid'];
-  $username = $_SESSION['username'];
-  $email = $_SESSION['email'];
-  $fname = $_SESSION['fname'];
-  $gender = $_SESSION['gender'];
-  $lname = $_SESSION['lname'];
-  $contact = $_SESSION['contact'];
+  // $pid = $_SESSION['pid'];
+  // $username = $_SESSION['username'];
+  // $email = $_SESSION['email'];
+  // $fname = $_SESSION['fname'];
+  // $gender = $_SESSION['gender'];
+  // $lname = $_SESSION['lname'];
+  // $contact = $_SESSION['contact'];
 
 
 
