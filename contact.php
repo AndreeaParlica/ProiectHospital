@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
@@ -11,6 +11,7 @@ $query_builder = TRUE;
 
 $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
+
 if(isset($_POST['btnSubmit']))
 {
 	$name = $_POST['txtName'];
@@ -18,11 +19,11 @@ if(isset($_POST['btnSubmit']))
 	$contact = $_POST['txtPhone'];
 	$message = $_POST['txtMsg'];
 	$captcha = $_POST["captcha"];
-    $captchaUser = filter_var($_POST["captcha"]);
-	
-	$query="insert into contact(name,email,contact,message,captcha) values('$name','$email','$contact','$message','$captchaUser');";
+
+	$query="insert into contact(name,email,contact,message,captcha) values('$name','$email','$contact','$message','$captcha');";
 	$result = mysqli_query($con,$query);
-	  if($result)
+	
+	if($result)
     {
     	echo '<script type="text/javascript">'; 
 		echo 'alert("Message sent successfully!");'; 
@@ -30,9 +31,9 @@ if(isset($_POST['btnSubmit']))
 		echo '</script>';
     }
 }
-
+session_start();
 //verifica captcha code
-if(!empty($_POST["btnSubmit"])) {
+	if(!empty($_POST["btnSubmit"])) {
 	$name = $_POST["txtName"];
 	$email = $_POST["txtEmail"];
 	$captcha = $_POST["captcha"];
