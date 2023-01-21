@@ -10,6 +10,27 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+if(isset($_POST['btnSubmit']))
+{
+	$name = $_POST['txtName'];
+	$email = $_POST['txtEmail'];
+	$contact = $_POST['txtPhone'];
+	$message = $_POST['txtMsg'];
+	$captcha = $_POST["captcha"];
+    $captchaUser = filter_var($_POST["captcha"]);
+	
+	$query="insert into contact(name,email,contact,message,captcha) values('$name','$email','$contact','$message','$captchaUser');";
+	$result = mysqli_query($con,$query);
+	  if($result)
+    {
+    	echo '<script type="text/javascript">'; 
+		echo 'alert("Message sent successfully!");'; 
+		echo 'window.location.href = "contact.html";';
+		echo '</script>';
+    }
+}
+
 //verifica captcha code
 if(!empty($_POST["btnSubmit"])) {
 	$name = $_POST["txtName"];
@@ -34,23 +55,3 @@ if(!empty($_POST["btnSubmit"])) {
 	  );
 	}
   }  
-
-if(isset($_POST['btnSubmit']))
-{
-	$name = $_POST['txtName'];
-	$email = $_POST['txtEmail'];
-	$contact = $_POST['txtPhone'];
-	$message = $_POST['txtMsg'];
-	$captcha = $_POST["captcha"];
-    $captchaUser = filter_var($_POST["captcha"]);
-	
-	$query="insert into contact(name,email,contact,message,captcha) values('$name','$email','$contact','$message','$captchaUser');";
-	$result = mysqli_query($con,$query);
-	  if($result)
-    {
-    	echo '<script type="text/javascript">'; 
-		echo 'alert("Message sent successfully!");'; 
-		echo 'window.location.href = "contact.html";';
-		echo '</script>';
-    }
-}
