@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
@@ -56,3 +56,5 @@ if(isset($_POST['btnSubmit']))
 // 	  );
 // 	}
 //   }  
+
+?>
