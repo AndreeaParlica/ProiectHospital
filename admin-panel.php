@@ -144,7 +144,7 @@ if(isset($_GET["generate_bill"])){
   $content .= '
       <br/>
       <h2 align ="center"> Proiect Hospital</h2></br>
-      <h3 align ="center"> Bill</h3>
+      <h3 align ="center"> Factura</h3>
       
 
   ';
@@ -548,7 +548,7 @@ function get_specs(){
                     <th scope="col">Boala</th>
                     <th scope="col">Alergii</th>
                     <th scope="col">Retete</th>
-                    <th scope="col">Plata factura</th>
+                    <th scope="col">Vizualizare factura</th>
                   </tr>
                 </thead>
                 <tbody>
