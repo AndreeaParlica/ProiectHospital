@@ -17,13 +17,13 @@ $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cl
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 
 
-  // $pid = $_SESSION['pid'];
-  // $username = $_SESSION['username'];
-  // $email = $_SESSION['email'];
-  // $fname = $_SESSION['fname'];
-  // $gender = $_SESSION['gender'];
-  // $lname = $_SESSION['lname'];
-  // $contact = $_SESSION['contact'];
+$pid = $_SESSION['pid'];
+$username = $_SESSION['username'];
+$email = $_SESSION['email'];
+$fname = $_SESSION['fname'];
+$gender = $_SESSION['gender'];
+$lname = $_SESSION['lname'];
+$contact = $_SESSION['contact'];
 
 
 
@@ -86,9 +86,6 @@ if(isset($_GET['cancel']))
       echo "<script>alert('Programarea a fost anulata cu succes!');</script>";
     }
   }
-
-
-
 
 
 function generate_bill(){
@@ -155,7 +152,7 @@ if(isset($_GET["generate_bill"])){
   $content .= generate_bill();
   $obj_pdf -> writeHTML($content);
   ob_end_clean();
-  $obj_pdf -> Output("bill.pdf",'I');
+  $obj_pdf -> Output("factura.pdf",'I');
 
 }
 
@@ -194,23 +191,16 @@ function get_specs(){
     
         <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 
-    
-  
-    
-    
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Proiect Hospital </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Proiect Hospital </a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
 
   <style >
     .bg-primary {
@@ -318,15 +308,9 @@ function get_specs(){
                       </p>
                     </div>
                   </div>
-                </div>
-                
-         
+                </div>   
             </div>
           </div>
-
-
-
-
 
       <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
         <div class="container-fluid">
@@ -342,8 +326,6 @@ function get_specs(){
                           $cleardb_username = $cleardb_url["user"];
                           $cleardb_password = $cleardb_url["pass"];
                           $cleardb_db = substr($cleardb_url["path"],1);
-                         
-                        
                           $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
                         
                         // $con=mysqli_connect("localhost","root","","myhmsdb3");
@@ -356,7 +338,6 @@ function get_specs(){
                           echo json_encode($docarray);
 
                   ?> -->
-      
 
                     <div class="col-md-4">
                           <label for="spec">Specializare:</label>
@@ -373,7 +354,7 @@ function get_specs(){
                         <br><br>
 
                         <script>
-                      document.getElementById('spec').onchange = function foo() {
+                        document.getElementById('spec').onchange = function foo() {
                         let spec = this.value;   
                         console.log(spec)
                         let docs = [...document.getElementById('doctor').options];
@@ -396,19 +377,12 @@ function get_specs(){
                       <?php display_docs(); ?>
                     </select>
                   </div><br/><br/> 
-
-
                         <script>
               document.getElementById('doctor').onchange = function updateFees(e) {
                 var selection = document.querySelector(`[value=${this.value}]`).getAttribute('data-value');
                 document.getElementById('docFees').value = selection;
               };
             </script>
-
-                  
-                  
-
-                  
                         <!-- <div class="col-md-4"><label for="doctor">Doctors:</label></div>
                                 <div class="col-md-8">
                                     <select name="doctor" class="form-control" id="doctor1" required="required">
@@ -447,9 +421,6 @@ function get_specs(){
                 document.getElementById('doctor1').value = document.querySelector(`[value=${values}]`).getAttribute('data-value');
               };
             </script> -->
-
-
-                  
                   <div class="col-md-4"><label for="consultancyfees">
                                 Taxe consultatii
                               </label></div>
@@ -472,9 +443,7 @@ function get_specs(){
                       <option value="14:00:00">2:00 PM</option>
                       <option value="16:00:00">4:00 PM</option>
                     </select>
-
                   </div><br><br>
-
                   <div class="col-md-4">
                     <input type="submit" name="app-submit" value="Creaza o programare" class="btn btn-primary" id="inputbtn">
                   </div>
@@ -491,7 +460,6 @@ function get_specs(){
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    
                     <th scope="col">Nume doctor</th>
                     <th scope="col">Taxa consultatie</th>
                     <th scope="col">Data programare</th>
@@ -507,10 +475,8 @@ function get_specs(){
                       $cleardb_username = $cleardb_url["user"];
                       $cleardb_password = $cleardb_url["pass"];
                       $cleardb_db = substr($cleardb_url["path"],1);
-                     
                     
                       $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-                     
 
                     // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
