@@ -15,6 +15,16 @@ $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cl
 
 // $con=mysqli_connect("localhost","root","","myhmsdb3");
 
+
+// $pid = $_SESSION['pid'];
+// $username = $_SESSION['username'];
+// $email = $_SESSION['email'];
+// $fname = $_SESSION['fname'];
+// $gender = $_SESSION['gender'];
+// $lname = $_SESSION['lname'];
+// $contact = $_SESSION['contact'];
+
+
 if(isset($_POST['app-submit']))
 {
   $pid = $_SESSION['pid'];
@@ -229,7 +239,7 @@ function get_specs(){
   <body style="padding-top:50px;">
   
    <div class="container-fluid" style="margin-top:50px;">
-    <h3 style = "margin-left: 40%;  padding-bottom: 20px; font-family: 'IBM Plex Sans', sans-serif;"> Bine ai venit &nbsp<?php echo $cleardb_username ?> 
+    <h3 style = "margin-left: 40%;  padding-bottom: 20px; font-family: 'IBM Plex Sans', sans-serif;"> Bine ai venit &nbsp<?php echo $fname ?> 
    </h3>
     <div class="row">
   <div class="col-md-4" style="max-width:25%; margin-top: 3%">
