@@ -36,8 +36,8 @@ if(isset($_POST['update_data']))
   if(mysqli_num_rows($result)==1)
   {
     $_SESSION['username']=$username;
-    // header("Location:admin-panel.php");
-    header("Location:doctor-panel.php");
+    header("Location:admin-panel.php");
+    
   }
   else
     header("Location:error2.php");
