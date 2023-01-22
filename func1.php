@@ -20,9 +20,8 @@ if(isset($_POST['docsub1'])){
     while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
     
 		      $_SESSION['dname']=$row['username'];
-      
+          header("Location:doctor-panel.php");
     }
-		header("Location:doctor-panel.php");
 	}
 	else{
     header("Location:error2.php");
