@@ -164,6 +164,8 @@ function get_specs(){
     }
     return json_encode($docarray);
 }
+$fname = $_SESSION['fname'];
+$lname = $_SESSION['lname'];
 
 ?>
 <html lang="en">
@@ -469,7 +471,8 @@ function get_specs(){
 
                     // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
-
+                    $fname = $_SESSION['fname'];
+                    $lname = $_SESSION['lname'];
                     $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
