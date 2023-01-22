@@ -38,7 +38,7 @@ function checklen()
 {
     var pass1 = document.getElementById("password");  
     if(pass1.value.length<6){  
-        alert("Password must be at least 6 characters long. Try again!");  
+        alert("Parola trebuie sa aiba mai mu;t de 6 caractere!Incearca din nou!");  
         return false;  
   }  
 }
