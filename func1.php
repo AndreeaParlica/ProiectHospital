@@ -19,7 +19,7 @@ if(isset($_POST['docsub1'])){
 	{
     while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
     
-		      $_SESSION['dname']=$row['username'];
+		      $_SESSION['username']=$row['username'];
           header("Location:doctor-panel.php");
     }
 	}

@@ -33,7 +33,7 @@ if(isset($_POST['app-submit']))
   $appdate=$_POST['appdate'];
   $apptime=$_POST['apptime'];
   $cur_date = date("Y-m-d");
-  date_default_timezone_set('Asia/Kolkata');
+  date_default_timezone_set('Europe/Bucharest');
   $cur_time = date("H:i:s");
   $apptime1 = strtotime($apptime);
   $appdate1 = strtotime($appdate);
@@ -164,8 +164,6 @@ function get_specs(){
     }
     return json_encode($docarray);
 }
-$fname = $_SESSION['fname'];
-$lname = $_SESSION['lname'];
 
 ?>
 <html lang="en">
@@ -471,8 +469,8 @@ $lname = $_SESSION['lname'];
 
                     // $con=mysqli_connect("localhost","root","","myhmsdb3");
                     global $con;
-                    $fname = $_SESSION['fname'];
-                    $lname = $_SESSION['lname'];
+                     $fname = $_SESSION['fname'];
+                     $lname = $_SESSION['lname'];
                     $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
                     $result = mysqli_query($con,$query);
                     while ($row = mysqli_fetch_array($result)){
