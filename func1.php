@@ -19,27 +19,27 @@ if(isset($_POST['docsub1'])){
 	{
     while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
     
-		      $_SESSION['username']=$username;
-          header("Location:doctor-panel.php");
+		      $_SESSION['dname']=$row['username'];
     }
+    header("Location:doctor-panel.php");
 	}
 	else{
-    header("Location:error2.php");
+    // header("Location:error2.php");
     echo("<script>alert('User sau parola invalide! Incearca din nou!');
           window.location.href = 'index.php';</script>");
   }
 }
 
-if(isset($_POST['update_data']))  
-  $result=mysqli_query($con,$query);
-  if(mysqli_num_rows($result)==1)
-  {
-    $_SESSION['username']=$username;
-    header("Location:admin-panel.php");
+// if(isset($_POST['update_data']))  
+//   $result=mysqli_query($con,$query);
+//   if(mysqli_num_rows($result)==1)
+//   {
+//     $_SESSION['username']=$username;
+//     header("Location:admin-panel.php");
     
-  }
-  else
-    header("Location:error2.php");
+//   }
+//   else
+//     header("Location:error2.php");
   
 function display_docs()
 {
@@ -54,14 +54,14 @@ function display_docs()
 	}
 }
 
-if(isset($_POST['doc_sub']))
-{
-	$name=$_POST['name'];
-	$query="insert into doctb(name)values('$name')";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:adddoc.php");
-}
+// if(isset($_POST['doc_sub']))
+// {
+// 	$name=$_POST['name'];
+// 	$query="insert into doctb(name)values('$name')";
+// 	$result=mysqli_query($con,$query);
+// 	if($result)
+// 		header("Location:adddoc.php");
+// }
 
 
 function display_admin_panel(){
