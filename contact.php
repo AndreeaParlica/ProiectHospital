@@ -18,9 +18,8 @@ if(isset($_POST['btnSubmit']))
 	$email = $_POST['txtEmail'];
 	$contact = $_POST['txtPhone'];
 	$message = $_POST['txtMsg'];
-	$captcha = $_POST["captcha"];
 
-	$query="insert into contact(name,email,contact,message,captcha) values('$name','$email','$contact','$message','$captcha');";
+	$query="insert into contact(name,email,contact,message) values('$name','$email','$contact','$message');";
 	$result = mysqli_query($con,$query);
 	
 	if($result)
@@ -30,28 +29,25 @@ if(isset($_POST['btnSubmit']))
 		echo 'window.location.href = "contact.html";';
 		echo '</script>';
     }
-} else {
-	$name = $_POST["txtName"];
-	$email = $_POST["txtEmail"];
-	$captcha = $_POST["captcha"];
-	$captchaUser = filter_var($_POST["captcha"]);
-	if(empty($captcha)) {
-	  $captchaError = array(
-		"status" => "alert-danger",
-		"message" => "Inserati un cod captcha."
-	  );
+	if(isset($_POST['g-recaptcha-response'])){
+		$captcha=$_POST['g-recaptcha-response'];
+	  }
+	if(!$captcha){
+	echo 'Verifica formularul reCaptcha.';
+	exit;
 	}
-if($_SESSION['CAPTCHA_CODE'] == $captchaUser){
-	$captchaError = array(
-		"status" => "alert-success",
-		"message" => "Formular trimis cu succes."
-	  );
-} else {
-	$captchaError = array(
-		"status" => "alert-danger",
-		"message" => "Captcha invalid."
-	  );
+	$secretKey = "6Lcqr04kAAAAADFvvGkR5KKkAnMnucdirPPkqTPm";
+	$ip = $_SERVER['REMOTE_ADDR'];
+	// post request to server
+	$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+	$response = file_get_contents($url);
+	$responseKeys = json_decode($response,true);
+	// should return JSON with success as true
+	if($responseKeys["success"]) {
+			echo 'Multumim pentru formular';
+	} else {
+			echo 'Pauza.Incearca peste 5 min!!';
 	}
-  }  
+} 
 
 ?>

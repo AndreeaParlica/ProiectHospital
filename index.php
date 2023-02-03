@@ -2,14 +2,14 @@
 <head>
 	<title>Proiect Hospital</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="style1.css">
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <style >
      .form-control {
@@ -44,6 +44,7 @@ function checklen()
 }
 
 </script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 
 </head>
 
@@ -126,7 +127,6 @@ function checklen()
                                             <a href="index1.php">Exista deja un cont de pacient?</a>
                                         </div>
                                     </div>
-                                
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Nume *" name="lname" onkeydown="return alphaOnly(event);" required/>
@@ -137,8 +137,10 @@ function checklen()
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control"  id="cpassword" placeholder="Confirma parola *" name="cpassword"  onkeyup='check();' required/><span id='message'></span>
-                                        </div>
+                                        </div> <div class="g-recaptcha" data-sitekey="6Lcqr04kAAAAABClwiDig16lPMHVrG8DUUTQR-zQ"></div>
+
                                         <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Inregistreaza"/>
+                                        
                                     </div>
 
                                 </div>

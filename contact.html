@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="contact.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 <script >
   function alphaOnly(event) {
     var key = event.keyCode;
@@ -92,15 +93,8 @@
                         <div class="form-group" >
                             <textarea name="txtMsg" class="form-control" placeholder="Mesajul tau *" style="width: 100%; height: 56px;" required></textarea>
                         </div>
-                        <div class="row">
-                          <div class="form-group col-6">
-                            <label>Insereaza cod</label>
-                            <input type="text" class="form-control" name="captcha" id="captcha">
-                          </div>
-                          <div class="form-group col-6">
-                            <label>Cod Captcha</label>
-                            <img src="captchaImageSource.php" alt="PHP Captcha">
-                          </div>
+                          <div class="g-recaptcha" data-sitekey="6Lcqr04kAAAAABClwiDig16lPMHVrG8DUUTQR-zQ"></div>
+                          
                       </div>
                     </div>
                 </div>

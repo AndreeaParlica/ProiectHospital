@@ -30,13 +30,31 @@ if(isset($_POST['patsub1'])){
         $_SESSION['email'] = $_POST['email'];
         header("Location:admin-panel.php");
     } 
+    if(isset($_POST['g-recaptcha-response'])){
+      $captcha=$_POST['g-recaptcha-response'];
+      }
+    if(!$captcha){
+    echo 'Verifica formularul reCaptcha.';
+    exit;
+    }
+    $secretKey = "6Lcqr04kAAAAADFvvGkR5KKkAnMnucdirPPkqTPm";
+    $ip = $_SERVER['REMOTE_ADDR'];
+    // post request to server
+    $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+    $response = file_get_contents($url);
+    $responseKeys = json_decode($response,true);
+    // should return JSON with success as true
+    if($responseKeys["success"]) {
+        echo 'Multumim pentru formular';
+    } else {
+        echo 'Pauza.Incearca peste 5 min!!';
+    }
 
     $query1 = "select * from patreg;";
     $result1 = mysqli_query($con,$query1);
     if($result1){
       $_SESSION['pid'] = $row['pid'];
     }
-
   }
   else{
     header("Location:error1.php");
