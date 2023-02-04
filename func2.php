@@ -1,4 +1,6 @@
 <?php
+include 'secretkey.php';
+
 session_start();
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
@@ -37,7 +39,6 @@ if(isset($_POST['patsub1'])){
     echo 'Verifica formularul reCaptcha.';
     exit;
     }
-    $secretKey = "6Lcqr04kAAAAADFvvGkR5KKkAnMnucdirPPkqTPm";
     $ip = $_SERVER['REMOTE_ADDR'];
     // post request to server
     $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
